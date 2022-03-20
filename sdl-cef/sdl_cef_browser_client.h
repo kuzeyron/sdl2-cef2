@@ -36,6 +36,7 @@ public:
     CefRefPtr<CefContextMenuHandler> GetContextMenuHandler() override;
 
     bool OnProcessMessageReceived(CefRefPtr<CefBrowser> browser,
+                                  CefRefPtr<CefFrame> frame,
                                   CefProcessId source_process,
                                   CefRefPtr<CefProcessMessage> message) override;
 
@@ -51,12 +52,12 @@ public:
                         CefRefPtr<CefFrame> frame,
                         CefRefPtr<CefRequest> request,
                         bool user_gesture,
-                        bool is_redirect) override;
+                        bool is_redirect);
 
     CefRefPtr<CefResourceHandler> GetResourceHandler(
             CefRefPtr<CefBrowser> browser,
             CefRefPtr<CefFrame> frame,
-            CefRefPtr<CefRequest> request) override;
+            CefRefPtr<CefRequest> request);
 
     void OnRenderProcessTerminated(CefRefPtr<CefBrowser> browser,
                                    TerminationStatus status) override;

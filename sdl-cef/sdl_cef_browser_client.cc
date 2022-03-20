@@ -46,7 +46,7 @@ private:
 /**
  * Prevents a context menu appearing
  */
-class NoContextMenu : public CefContextMenuHandler {
+class NoContextMenu: public CefContextMenuHandler {
     void OnBeforeContextMenu(CefRefPtr<CefBrowser> browser,
                                      CefRefPtr<CefFrame> frame,
                                      CefRefPtr<CefContextMenuParams> params,
@@ -56,7 +56,7 @@ class NoContextMenu : public CefContextMenuHandler {
     IMPLEMENT_REFCOUNTING(NoContextMenu);
 };
 
-SdlCefBrowserClient::SdlCefBrowserClient(CefRefPtr<CefRenderHandler> ptr, const CefMessageRouterConfig &config) :
+SdlCefBrowserClient::SdlCefBrowserClient(CefRefPtr<CefRenderHandler> ptr, const CefMessageRouterConfig &config):
         renderHandler(ptr),
         contextMenuHandler(new NoContextMenu),
         config(config) {
@@ -163,10 +163,10 @@ void SdlCefBrowserClient::OnRenderProcessTerminated(CefRefPtr<CefBrowser> browse
 }
 
 bool SdlCefBrowserClient::OnProcessMessageReceived(CefRefPtr<CefBrowser> browser,
+                                                   CefRefPtr<CefFrame> frame,
                                                    CefProcessId source_process,
-                                                   CefRefPtr<CefProcessMessage> message) {
+                                                   CefRefPtr<CefProcessMessage> message){
     CEF_REQUIRE_UI_THREAD();
 
-    return messageRouterBrowserSide->OnProcessMessageReceived(browser, source_process, message);
+    return messageRouterBrowserSide->OnProcessMessageReceived(browser, frame, source_process, message);
 }
-
