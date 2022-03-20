@@ -5,14 +5,14 @@
 # See the included README.md file for usage instructions.
 set(CMAKE_CXX_FLAGS_RELEASE_INIT "-Wall")
 
-cmake_minimum_required(VERSION 2.8.12.1)
+cmake_minimum_required(VERSION 3.19)
 
 # Only generate Debug and Release configuration types.
 set(CMAKE_CONFIGURATION_TYPES Debug Release)
-set (CMAKE_CXX_STANDARD 11)
+# set (CMAKE_CXX_STANDARD 11) ### FORBIDDEN TO USE
 
 # Project name.
-project(cef)
+project(sdlcef)
 
 # Use folders in the resulting project files.
 set_property(GLOBAL PROPERTY OS_FOLDERS ON)
@@ -128,7 +128,7 @@ add_subdirectory(${CEF_ROOT}/tests/ceftests)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
 # Configure building of the examples.
-option(WITH_EXAMPLES "Enable or disable building of examples." ON)
+option(WITH_EXAMPLES "Enable or disable building of examples." OFF)
 if(WITH_EXAMPLES)
   # Include example application targets.
   add_subdirectory(examples)
