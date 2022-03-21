@@ -39,10 +39,10 @@ public:
     void render();
 
     // CefRenderHandler functions
-    bool GetViewRect(CefRefPtr<CefBrowser> browser, CefRect& rect) override;
+    void GetViewRect(CefRefPtr<CefBrowser> browser, CefRect& rect) override;
 
-    void OnPaint(CefRefPtr<CefBrowser> browser, PaintElementType type, const RectList &dirtyRects,
-                 const void *buffer, int w, int h) override;
+    void OnPaint(CefRefPtr<CefBrowser> browser, PaintElementType type, const RectList& dirtyRects,
+                 const void* buffer, int w, int h) override;
 
 private:
 

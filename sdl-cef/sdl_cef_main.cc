@@ -108,6 +108,7 @@ int main(int argc, char *argv[]) {
                                                                       browserClient,
                                                                       htmlFile,
                                                                       browserSettings,
+                                                                      nullptr,
                                                                       nullptr);
 
     while (!browserClient->closeAllowed()) {

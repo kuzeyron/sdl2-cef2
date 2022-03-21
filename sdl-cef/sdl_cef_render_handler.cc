@@ -16,9 +16,8 @@ SdlCefRenderHandler::~SdlCefRenderHandler() {
     renderer = nullptr;
 }
 
-bool SdlCefRenderHandler::GetViewRect(CefRefPtr<CefBrowser> browser, CefRect &rect) {
+void SdlCefRenderHandler::GetViewRect(CefRefPtr<CefBrowser> browser, CefRect &rect) {
     rect = CefRect(0, 0, width, height);
-    return true;
 }
 
 void SdlCefRenderHandler::OnPaint(CefRefPtr<CefBrowser> browser, PaintElementType type, const RectList &dirtyRects,
